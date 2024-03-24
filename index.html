@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ToTeTi</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="midi-container">
+    <img src="https://scontent.fhan3-3.fna.fbcdn.net/v/t1.15752-9/431081698_1132256248212680_5180591112998403442_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ib-JtdF0cucAX8s0jp5&_nc_ht=scontent.fhan3-3.fna&oh=03_AdStBoOcTS-cU-azbgesa45mlcrAFn4TrcUBUk60d_HFGw&oe=6627CED3" alt="Image Description" style="width: 300px;">
+    <h1>TòTeTí playing music for you ..., this is his 29th attempt<br>
+        7 hours, 2 minutes, 12 sec</h1>
+    <audio id="midi-audio" controls>
+        <!-- Here you would provide a source to an MP3 or WAV file -->
+        <source src="/home/khangpt/Documents/WebForFun/RunningButton/ToTeTiPlaySong/ToTeTiFile29.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <br>
+    <div class="botón" onclick="toggleButton()">
+        <div class="fondo" x="0" y="0" width="200" height="200"></div>
+        <div class="icono" width="200" height="200">
+          <div class="parte izquierda" x="0" y="0" width="200" height="200" fill="#fff"></div>
+          <div class="parte derecha" x="0" y="0" width="200" height="200" fill="#fff"></div>
+        </div>
+        <div class="puntero"></div>
+      </div>
+    <button id="play-button" onclick="togglePlayPause()"><span id="play-icon"></span></button>
+</div>
+
+<script>
+    // JavaScript to handle playing the MIDI file
+    const audio = document.getElementById('midi-audio');
+    const playButton = document.getElementById('play-button');
+    const playIcon = document.getElementById('play-icon');
+
+    function togglePlayPause() {
+        if (audio.paused) {
+            audio.play();
+            playIcon.classList.remove('play-icon');
+            playIcon.classList.add('pause-icon');
+        } else {
+            audio.pause();
+            playIcon.classList.remove('pause-icon');
+            playIcon.classList.add('play-icon');
+        }
+    }
+    function toggleButton() {
+        togglePlayPause(); // Call togglePlayPause function
+        document.querySelector('.botón').classList.toggle('active'); // Toggle 'active' class
+    }
+</script>
+
+</body>
+</html>
